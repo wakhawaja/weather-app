@@ -3,48 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather App - Easy Tutorials</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Weather App</title>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <div class="card">
-      <div class="search">
+    <div class="app-container fade-in">
+      <!-- ==========================
+           SEARCH BOX
+      =========================== -->
+      <div class="search-box">
         <input
           type="text"
-          placeholder="Search for a city..."
-          spellcheck="false"
+          id="city-input"
+          placeholder="Enter city name..."
+          autocomplete="off"
+          aria-label="City Name Input"
         />
-        <button><img src="images/search.png" alt="search image" /></button>
+        <button id="search-btn" aria-label="Search Button">
+          <img src="images/icons/search.png" alt="Search Icon" />
+        </button>
       </div>
 
-      <!-- ⭐ NEW SPINNER -->
-      <div class="loader" id="loader"></div>
-
-      <div class="weather">
-        <img src="images/rain.png" alt="weather-icon" class="weather-icon" />
-        <h3>Raining</h3>
-        <h1 class="temp">22°C</h1>
-        <h2 class="city">New York, US</h2>
+      <!-- ==========================
+           LOADING SPINNER
+      =========================== -->
+      <div id="loader" class="hidden">
+        <div class="spinner"></div>
       </div>
 
-      <div class="bottom-section">
-        <div class="col">
-          <img src="images/humidity.png" alt="humidity" />
-          <div>
-            <p class="humidity">60%</p>
-            <p>Humidity</p>
+      <!-- ==========================
+           WEATHER BOX
+      =========================== -->
+      <div class="weather-box hidden" id="weather-box">
+        <img
+          id="weather-icon"
+          src="images/icons/clear.png"
+          alt="Weather Icon"
+        />
+
+        <h2 id="temperature">--°C</h2>
+        <h3 id="city-name">Search City</h3>
+        <p id="description">--</p>
+
+        <div class="details">
+          <div class="detail-item">
+            <img src="images/icons/humidity.png" alt="Humidity Icon" />
+            <p><span id="humidity">--</span>%</p>
           </div>
-        </div>
-        <div class="col">
-          <img src="images/wind.png" alt="wind" />
-          <div>
-            <p class="wind">15 Km/h</p>
-            <p>Wind Speed</p>
+
+          <div class="detail-item">
+            <img src="images/icons/wind.png" alt="Wind Icon" />
+            <p><span id="wind">--</span> km/h</p>
           </div>
         </div>
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- JS Files (Loaded as ES Modules) -->
+    <script type="module" src="script.js"></script>
   </body>
 </html>
